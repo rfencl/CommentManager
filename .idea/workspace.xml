@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8f7802-24d4-451e-8a8b-1b5630a1cf92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CommentManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "rfencl"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rfencl/CommentManager.git",
+    "accountId": "560935fd-2c3d-4701-9591-50964c8221e7"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -42,8 +48,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.CommentManagerTest.combineCommentsWithDeclaration.executor": "Debug",
     "JUnit.CommentManagerTest.executor": "Run",
-    "JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor": "Run",
+    "JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor": "Debug",
+    "JUnit.CommentManagerTest.parseFileForComments.executor": "Debug",
     "JUnit.CommentManagerTest.readFirstJavaFile.executor": "Debug",
     "JUnit.CommentManagerTest.verifyPathsExist.executor": "Run",
     "JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor": "Run",
@@ -56,13 +64,16 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/rick/Documents/GitHub/CommentManager/src/main/java",
-    "last_opened_file_path": "/home/rick/Documents/GitHub/BowlingGame/pom.xml",
+    "last_opened_file_path": "/home/rick/Documents/GitHub/CommentManager/src/main/resources",
     "onboarding.tips.debug.path": "/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -72,7 +83,7 @@
       <command value="mvn clean -U compile test-compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentManagerTest.parseFileForClassesAndMethods">
+  <component name="RunManager" selected="JUnit.CommentManagerTest.combineCommentsWithDeclaration">
     <configuration name="CommentManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -82,11 +93,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CommentManagerTest.combineCommentsWithDeclaration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommentManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
+      <option name="METHOD_NAME" value="combineCommentsWithDeclaration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CommentManagerTest.parseFileForClassesAndMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
       <option name="METHOD_NAME" value="parseFileForClassesAndMethods" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentManagerTest.parseFileForComments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommentManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
+      <option name="METHOD_NAME" value="parseFileForComments" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,33 +133,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.verifySrcStructureMatchesDocs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CommentManager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="verifySrcStructureMatchesDocs" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CommentManager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="verifyThatAMarkDownFileExistsForEachJavaFile" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CommentManagerTest.combineCommentsWithDeclaration" />
+        <item itemvalue="JUnit.CommentManagerTest.parseFileForComments" />
         <item itemvalue="JUnit.CommentManagerTest.parseFileForClassesAndMethods" />
         <item itemvalue="JUnit.CommentManagerTest.readFirstJavaFile" />
         <item itemvalue="JUnit.CommentManagerTest" />
-        <item itemvalue="JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile" />
-        <item itemvalue="JUnit.CommentManagerTest.verifySrcStructureMatchesDocs" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +166,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/CommentManager.java</url>
           <line>28</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

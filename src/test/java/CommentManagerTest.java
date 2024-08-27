@@ -1,12 +1,11 @@
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -51,17 +50,86 @@ public class CommentManagerTest {
 
     @Test
     public void parseFileForClassesAndMethods() throws IOException {
+        Map<Integer, String> store = getIntegerStringMap();
+        assertEquals(store.size(), 5);
+
+    }
+
+    private Map<Integer, String> getIntegerStringMap() throws IOException {
         List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
         Path path = allJavaFiles_src.stream().findFirst().get();
         List<String> lines = FileUtils.readFileToList(path);
-        List<String> methods = new ArrayList<>();
-        lines.forEach(l ->  {
+        Map<Integer, String> store = new LinkedHashMap<>();
+        Integer i = 1;
+        for (String l : lines) {
             if (l.matches("^.*public.*class.*\\{|^.*(?:private|public).*\\(.*\\).*\\{")) {
-                methods.add(l);
+                store.put(i, l);
             }
-        });
-        assertEquals(methods.size(), 5);
+            i++;
+        }
+        log.info(store.toString());
+        return store;
     }
+
+    @Test
+    public void parseFileForComments() throws IOException {
+        Map<Integer, List<String>> store = getIntegerListMap();
+        assertEquals(store.size(), 5);
+    }
+
+    private Map<Integer, List<String>> getIntegerListMap() throws IOException {
+        List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
+        Path path = allJavaFiles_src.stream().findFirst().get();
+        List<String> lines = FileUtils.readFileToList(path);
+        String startOfJavaDoc = "^.*/\\*\\*.*$";
+        String endOfJavaDoc = "^.*\\*/.*$";
+        String middleOfJavaDoc = "^\s*\\*\s.*$";
+        List<String> comment = new ArrayList<>();
+        Map<Integer, List<String>> store = new LinkedHashMap<>();
+        Integer i = 1;
+        Integer startOfComment = 0;
+        for (String l : lines) {
+            if (l.matches(startOfJavaDoc)) {
+                comment = new ArrayList<>();
+                comment.add(l);
+                startOfComment = i;
+            }
+
+            else if (l.matches(middleOfJavaDoc)) {
+                comment.add(l);
+            }
+
+            else if (l.matches(endOfJavaDoc)) {
+                comment.add(l);
+                store.put(startOfComment, comment);
+            }
+            i++;
+        }
+        log.info(store.toString());
+        return store;
+    }
+
+    @Test
+    public void combineCommentsWithDeclaration() throws IOException {
+        Map<Integer, String> integerStringMap = getIntegerStringMap();
+        Map<Integer, List<String>> integerListMap = getIntegerListMap();
+        log.info("function keys {}", integerStringMap.keySet());
+        log.info("comment keys {}", integerListMap.keySet());
+        Map<String, List<String>> combined = new LinkedHashMap<>();
+        Queue<Integer> queue = new LinkedList<>(integerListMap.keySet());
+        for (Integer fi : integerStringMap.keySet()) {
+            for(Integer li : queue) {
+                if (li < fi) {
+                    combined.put(integerStringMap.get(fi), integerListMap.get(li));
+                    queue.remove();
+                    break;
+                }
+            }
+        }
+        assertEquals(5, combined.size());
+    }
+
+
 
 
 }
