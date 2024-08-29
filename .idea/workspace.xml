@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8f7802-24d4-451e-8a8b-1b5630a1cf92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MarkDown.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MarkDown.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,24 +25,25 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "rfencl"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rfencl&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/rfencl/CommentManager.git",
-    "accountId": "560935fd-2c3d-4701-9591-50964c8221e7"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/rfencl/CommentManager.git&quot;,
+    &quot;accountId&quot;: &quot;560935fd-2c3d-4701-9591-50964c8221e7&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -53,14 +61,20 @@
     "JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor": "Debug",
     "JUnit.CommentManagerTest.parseFileForComments.executor": "Debug",
     "JUnit.CommentManagerTest.readFirstJavaFile.executor": "Debug",
+    "JUnit.CommentManagerTest.removeCommentsFromFile.executor": "Debug",
     "JUnit.CommentManagerTest.verifyPathsExist.executor": "Run",
     "JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor": "Run",
     "JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile.executor": "Run",
+    "JUnit.CommentManagerTest.writeTrimmedFileToDisk.executor": "Run",
+    "JUnit.ParserTest.parseJavaDocs.executor": "Run",
     "Maven.CommentManager [-U,compile,test-compile].executor": "Run",
     "Maven.CommentManager [-U,compile,testcompile].executor": "Run",
     "Maven.CommentManager [clean,-U,compile...].executor": "Run",
+    "Maven.CommentManager [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/rick/Documents/GitHub/CommentManager/src/main/java",
@@ -75,6 +89,18 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="Parser" />
+      <recent name="StringUtils" />
+      <recent name="FileUtils" />
+      <recent name="CommentManager" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -83,7 +109,7 @@
       <command value="mvn clean -U compile test-compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentManagerTest.combineCommentsWithDeclaration">
+  <component name="RunManager" selected="JUnit.CommentManagerTest.writeTrimmedFileToDisk">
     <configuration name="CommentManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,41 +119,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.combineCommentsWithDeclaration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentManagerTest.removeCommentsFromFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="combineCommentsWithDeclaration" />
+      <option name="METHOD_NAME" value="removeCommentsFromFile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.parseFileForClassesAndMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentManagerTest.verifyPathsExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="parseFileForClassesAndMethods" />
+      <option name="METHOD_NAME" value="verifyPathsExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.parseFileForComments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentManagerTest.writeTrimmedFileToDisk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="parseFileForComments" />
+      <option name="METHOD_NAME" value="writeTrimmedFileToDisk" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.readFirstJavaFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParserTest.parseJavaDocs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="readFirstJavaFile" />
+      <option name="MAIN_CLASS_NAME" value="ParserTest" />
+      <option name="METHOD_NAME" value="parseJavaDocs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentManagerTest.combineCommentsWithDeclaration" />
-        <item itemvalue="JUnit.CommentManagerTest.parseFileForComments" />
-        <item itemvalue="JUnit.CommentManagerTest.parseFileForClassesAndMethods" />
-        <item itemvalue="JUnit.CommentManagerTest.readFirstJavaFile" />
+        <item itemvalue="JUnit.CommentManagerTest.writeTrimmedFileToDisk" />
         <item itemvalue="JUnit.CommentManagerTest" />
+        <item itemvalue="JUnit.ParserTest.parseJavaDocs" />
+        <item itemvalue="JUnit.CommentManagerTest.verifyPathsExist" />
+        <item itemvalue="JUnit.CommentManagerTest.removeCommentsFromFile" />
       </list>
     </recent_temporary>
   </component>
@@ -158,36 +184,29 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CommentManager.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CommentManager.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="10" />
+          <line>30</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/src/main/java/Parser.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CommentManager$CommentManagerTest_removeCommentsFromFile.ic" NAME="CommentManagerTest.removeCommentsFromFile Coverage Results" MODIFIED="1724906744461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

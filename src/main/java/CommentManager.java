@@ -1,34 +1,40 @@
-import java.io.File;
-import java.io.IOException;
+import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+@Log4j2
 public class CommentManager {
 
-    public static void createDocDirectoryStructure(Path src) throws IOException {
-        List<Path> subdirectories_src = FileUtils.getAllSubdirectories(src);
-        subdirectories_src.forEach(CommentManager::createFolder);
-    }
-
-    private static void createFolder(Path path) {
-        String replace = path.toAbsolutePath().toString().replace("src", "docs");
-        File file = Paths.get(replace).toFile();
-        boolean mkdirs = file.mkdirs();
-    }
-
-    public static void createMarkDowns(Path src) throws IOException {
+    @SneakyThrows
+    public static void main(String [] args) {
+        Path src = Paths.get(args[0]);
+        FileUtils.createDocDirectoryStructure(src);
+        FileUtils.createMarkDowns(src);
         List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
-        allJavaFiles_src.forEach(CommentManager::createMdFiles);
+
+        Path docs = Paths.get(src.toAbsolutePath().toString().replace("src", "docs"));
+        List<Path> allJavaFiles_docs = FileUtils.getAllMdFiles(docs);
+
+        // todo loop through all the files and process them
     }
 
-    private static void createMdFiles(Path e) {
-        String replace = e.toAbsolutePath().toString().replace("src", "docs").replace(".java", ".md");
-        File file = Paths.get(replace).toFile();
-        try {
-            boolean newFile = file.createNewFile();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+    /**
+     * Remove the java doc comments from the lines of the java source file.
+     * @param lines    - lines of java source file
+     * @param comments - javadoc comments to remove
+     * @return List<String> lines of code without documentation.
+     */
+    public static List<String> removeJavaDocComments(List<String> lines, Map<Integer, List<String>> comments) {
+        List<String> trimmedLines = new LinkedList<>(lines);
+        comments.values().forEach(trimmedLines::removeAll);
+        trimmedLines.removeAll(Arrays.asList("     *"));
+        trimmedLines.forEach(log::info);
+        return trimmedLines;
     }
 }

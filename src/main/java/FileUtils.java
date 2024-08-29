@@ -1,8 +1,11 @@
 import lombok.extern.log4j.Log4j2;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,4 +49,40 @@ public class FileUtils {
         return ret;
     }
 
+    public static void writeLines(final Path filename, List<String> list) {
+        try (FileWriter writer = new FileWriter(filename.toString())) {
+            for (String str : list) {
+                writer.write(str + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            log.error("Exception writing {}", filename, e);
+        }
+    }
+
+    public static void createDocDirectoryStructure(Path src) throws IOException {
+        List<Path> subdirectories_src = getAllSubdirectories(src);
+        subdirectories_src.forEach(FileUtils::createFolder);
+    }
+
+    private static void createFolder(Path path) {
+        String replace = path.toAbsolutePath().toString().replace("src", "docs");
+        File file = Paths.get(replace).toFile();
+        //noinspection ResultOfMethodCallIgnored
+        file.mkdirs();
+    }
+
+    public static void createMarkDowns(Path src) throws IOException {
+        List<Path> allJavaFiles_src = getAllJavaFiles(src);
+        allJavaFiles_src.forEach(FileUtils::createMdFiles);
+    }
+
+    private static void createMdFiles(Path e) {
+        String replace = e.toAbsolutePath().toString().replace("src", "docs").replace(".java", ".md");
+        File file = Paths.get(replace).toFile();
+        try {
+            boolean newFile = file.createNewFile();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }
