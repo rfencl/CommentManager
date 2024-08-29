@@ -33,8 +33,7 @@ public class CommentManager {
     public static List<String> removeJavaDocComments(List<String> lines, Map<Integer, List<String>> comments) {
         List<String> trimmedLines = new LinkedList<>(lines);
         comments.values().forEach(trimmedLines::removeAll);
-        trimmedLines.removeAll(Arrays.asList("     *"));
-        trimmedLines.forEach(log::info);
+        trimmedLines.forEach(log::debug);
         return trimmedLines;
     }
 }

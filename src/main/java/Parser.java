@@ -44,9 +44,8 @@ public class Parser {
      * Copy the class and method declarations
      * @param lines  - lines of the input file
      * @return       - map of declarations indexed by the line number.
-     * @throws IOException
      */
-    public static Map<Integer, String> parseClassAndMethods(List<String> lines) throws IOException {
+    public static Map<Integer, String> parseClassAndMethods(List<String> lines) {
         Map<Integer, String> store = new LinkedHashMap<>();
         Integer i = 1;
         for (String l : lines) {

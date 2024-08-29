@@ -1,7 +1,6 @@
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +17,7 @@ class ParserTest {
      */
     @Test
     void parseJavaDocs() {
-        Map<Integer, List<String>> comments = new LinkedHashMap<>();
+        Map<Integer, List<String>> comments;
         List<String> lines = List.of(
                 "/**",
                 " * Formats the hex-ascii little-endian value to an int.",

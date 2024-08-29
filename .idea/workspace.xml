@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8f7802-24d4-451e-8a8b-1b5630a1cf92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CommentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MarkDown.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MarkDown.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +74,8 @@
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/rick/Documents/GitHub/CommentManager/src/main/java",
     "last_opened_file_path": "/home/rick/Documents/GitHub/CommentManager/src/main/resources",
-    "onboarding.tips.debug.path": "/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java"
+    "onboarding.tips.debug.path": "/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -109,7 +105,7 @@
       <command value="mvn clean -U compile test-compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentManagerTest.writeTrimmedFileToDisk">
+  <component name="RunManager" selected="JUnit.CommentManagerTest">
     <configuration name="CommentManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -161,8 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentManagerTest.writeTrimmedFileToDisk" />
         <item itemvalue="JUnit.CommentManagerTest" />
+        <item itemvalue="JUnit.CommentManagerTest.writeTrimmedFileToDisk" />
         <item itemvalue="JUnit.ParserTest.parseJavaDocs" />
         <item itemvalue="JUnit.CommentManagerTest.verifyPathsExist" />
         <item itemvalue="JUnit.CommentManagerTest.removeCommentsFromFile" />
@@ -185,12 +181,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>79</line>
+          <line>78</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>30</line>
+          <line>29</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

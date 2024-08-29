@@ -19,7 +19,6 @@ public class CommentManagerTest {
 
     static Path src = Paths.get("/home/rick/Documents/powin/localmanager-test/src/");
     static Path docs = Paths.get("/home/rick/Documents/powin/localmanager-test/docs/");
-    CommentManager cut = new CommentManager();
 
     @BeforeAll
     public static void initBeforeClass() throws IOException {
@@ -57,7 +56,7 @@ public class CommentManagerTest {
 
 
     @Test
-    public void combineCommentsWithDeclaration() throws IOException {
+    public void combineCommentsWithDeclaration() {
         log.debug("function keys {}", classesAndMethods.keySet());
         log.debug("comment keys {}", comments.keySet());
         combined = new LinkedHashMap<>();
@@ -83,16 +82,18 @@ public class CommentManagerTest {
 
     @Test
     public void writeTrimmedFileToDisk() {
-        Paths.get("trimmedFile.java").toFile().delete();
+        Path path = Paths.get("trimmedFile.java");
+        //noinspection ResultOfMethodCallIgnored
+        path.toFile().delete();
         FileUtils.writeLines(Paths.get("trimmedFile.java"), CommentManager.removeJavaDocComments(lines, comments));
         assertTrue(Paths.get("trimmedFile.java").toFile().exists());
     }
 
     private static List<String> readFirstFileAsLines() throws IOException {
         List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
+        @SuppressWarnings("OptionalGetWithoutIsPresent")
         Path path = allJavaFiles_src.stream().findFirst().get();
-        List<String> lines = FileUtils.readFileToList(path);
-        return lines;
+        return FileUtils.readFileToList(path);
     }
 
 
