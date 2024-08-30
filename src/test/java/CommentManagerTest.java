@@ -22,7 +22,7 @@ public class CommentManagerTest {
 
     @BeforeAll
     public static void initBeforeClass() throws IOException {
-        lines = readFirstFileAsLines();
+        lines = readFirstFile();
         classesAndMethods = Parser.parseClassAndMethods(lines);
         comments = Parser.parseJavaDocs(lines);
         assertEquals(classesAndMethods.size(), 5);
@@ -85,15 +85,15 @@ public class CommentManagerTest {
         Path path = Paths.get("trimmedFile.java");
         //noinspection ResultOfMethodCallIgnored
         path.toFile().delete();
-        FileUtils.writeLines(Paths.get("trimmedFile.java"), CommentManager.removeJavaDocComments(lines, comments));
+        FileUtils.writeFile(Paths.get("trimmedFile.java"), CommentManager.removeJavaDocComments(lines, comments));
         assertTrue(Paths.get("trimmedFile.java").toFile().exists());
     }
 
-    private static List<String> readFirstFileAsLines() throws IOException {
+    private static List<String> readFirstFile() throws IOException {
         List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
         @SuppressWarnings("OptionalGetWithoutIsPresent")
         Path path = allJavaFiles_src.stream().findFirst().get();
-        return FileUtils.readFileToList(path);
+        return FileUtils.readFile(path);
     }
 
 

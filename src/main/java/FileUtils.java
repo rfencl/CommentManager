@@ -39,7 +39,7 @@ public class FileUtils {
         }
     }
 
-    public static List<String> readFileToList(final Path filePath) {
+    public static List<String> readFile(final Path filePath) {
         List<String> ret = new ArrayList<>();
         try (Stream<String> stringStream = Files.lines(filePath)) {
             ret = stringStream.collect(Collectors.toList());
@@ -49,7 +49,7 @@ public class FileUtils {
         return ret;
     }
 
-    public static void writeLines(final Path filename, List<String> list) {
+    public static void writeFile(final Path filename, List<String> list) {
         try (FileWriter writer = new FileWriter(filename.toString())) {
             for (String str : list) {
                 writer.write(str + System.lineSeparator());
@@ -80,7 +80,8 @@ public class FileUtils {
         String replace = e.toAbsolutePath().toString().replace("src", "docs").replace(".java", ".md");
         File file = Paths.get(replace).toFile();
         try {
-            boolean newFile = file.createNewFile();
+            //noinspection ResultOfMethodCallIgnored
+            file.createNewFile();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
