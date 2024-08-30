@@ -3,10 +3,7 @@ import lombok.extern.log4j.Log4j2;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Log4j2
 public class CommentManager {
@@ -36,4 +33,32 @@ public class CommentManager {
         trimmedLines.forEach(log::debug);
         return trimmedLines;
     }
+
+    /**
+     * Write the current class comments to markdown
+     * @param file
+     * @param combined
+     */
+    public static void writeMarkDown(Path file, Map<String, List<String>> combined) {
+        List<String> markdownLines = new ArrayList<>();
+        markdownLines.add("# " + file.toString().replace(".java", ""));
+        combined.keySet().forEach(s -> {
+            if (s.contains("class")) {
+                addCommentsToMarkDown(combined, s, markdownLines);
+                markdownLines.add("## _Methods_");
+            } else {
+                String methodName = StringUtils.getMethodName(s.trim());
+                markdownLines.add(s.trim().replace(methodName, "**" + methodName + "**"));
+                addCommentsToMarkDown(combined, s, markdownLines);
+                markdownLines.add("---");
+            }
+        });
+        FileUtils.writeFile(Paths.get("markdown.md"), markdownLines);
+    }
+
+    private static void addCommentsToMarkDown(Map<String, List<String>> combined, String s, List<String> markdownLines) {
+        combined.get(s).forEach(e ->
+                markdownLines.add("\n\t" + e));
+    }
+
 }
