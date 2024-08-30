@@ -86,4 +86,10 @@ public class FileUtils {
             throw new RuntimeException(ex);
         }
     }
+
+    public static boolean isWindows() {
+        String os = System.getProperty("os.name").toLowerCase();
+        return os.contains("win");
+    }
+
 }

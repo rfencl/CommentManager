@@ -16,12 +16,24 @@ public class CommentManagerTest {
     static Map<Integer, List<String>> comments = new LinkedHashMap<>();
     static Map<String, List<String>> combined = new LinkedHashMap<>();
     static List<String> lines;
+    static Path src;
+    static Path docs;
 
-    static Path src = Paths.get("/home/rick/Documents/powin/localmanager-test/src/");
-    static Path docs = Paths.get("/home/rick/Documents/powin/localmanager-test/docs/");
+    static Path linuxSrc = Paths.get("/home/rick/Documents/powin/localmanager-test/src/");
+    static Path linuxDocs = Paths.get("/home/rick/Documents/powin/localmanager-test/docs/");
+
+    static Path winsrc = Paths.get("F:\\Powin\\localmanager-test\\src\\");
+    static Path windocs = Paths.get("F:\\Powin\\localmanager-test\\docs\\");
 
     @BeforeAll
     public static void initBeforeClass() throws IOException {
+        if (FileUtils.isWindows()) {
+            src = winsrc;
+            docs = windocs;
+        } else {
+            src = linuxSrc;
+            docs = linuxDocs;
+        }
         lines = readFirstFile();
         classesAndMethods = Parser.parseClassAndMethods(lines);
         comments = Parser.parseJavaDocs(lines);
@@ -90,9 +102,10 @@ public class CommentManagerTest {
     }
 
     private static List<String> readFirstFile() throws IOException {
-        List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
-        @SuppressWarnings("OptionalGetWithoutIsPresent")
-        Path path = allJavaFiles_src.stream().findFirst().get();
+        // List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
+        // @SuppressWarnings("OptionalGetWithoutIsPresent")
+        // Path path = allJavaFiles_src.stream().findFirst().get();
+        Path path = Paths.get("CommandByteReader.java");
         return FileUtils.readFile(path);
     }
 
