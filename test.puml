@@ -1,0 +1,61 @@
+@startuml
+class ParserTest {
+~ void parseJavaDocs()
+}
+
+class Parser {
++ {static} String START_OF_JAVA_DOC
++ {static} String END_OF_JAVA_DOC
++ {static} Map<Integer,List<String>> parseJavaDocs(List<String>)
++ {static} Map<Integer,String> parseClassAndMethods(List<String>)
+}
+
+
+class CommentManagerTest {
+~ {static} Map<Integer,String> classesAndMethods
+~ {static} Map<Integer,List<String>> comments
+~ {static} Map<String,List<String>> combined
+~ {static} List<String> lines
+~ {static} Path src
+~ {static} Path docs
+~ {static} Path linuxSrc
+~ {static} Path linuxDocs
+~ {static} Path winsrc
+~ {static} Path windocs
++ {static} void initBeforeClass()
++ void verifyPathsExist()
++ void verifySrcStructureMatchesDocs()
++ void verifyThatAMarkDownFileExistsForEachJavaFile()
++ void combineCommentsWithDeclaration()
++ void removeCommentsFromFile()
++ void writeTrimmedFileToDisk()
+- {static} List<String> readFirstFile()
+}
+
+
+class CommentManager {
++ {static} void main(String[])
++ {static} List<String> removeJavaDocComments(List<String>,Map<Integer,List<String>>)
+}
+
+class StringUtils {
++ {static} String MARKDOWN_INDENT_FOR_CODE_BLOCK
++ {static} String padWithLeadingSpaces(String)
+}
+
+
+class FileUtils {
++ {static} List<Path> getAllSubdirectories(Path)
++ {static} List<Path> getAllJavaFiles(Path)
++ {static} List<Path> getAllMdFiles(Path)
++ {static} List<Path> getFiles(Path,String)
++ {static} List<String> readFile(Path)
++ {static} void writeFile(Path,List<String>)
++ {static} void createDocDirectoryStructure(Path)
+- {static} void createFolder(Path)
++ {static} void createMarkDowns(Path)
+- {static} void createMdFiles(Path)
++ {static} boolean isWindows()
+}
+
+@enduml
