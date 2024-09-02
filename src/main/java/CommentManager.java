@@ -36,12 +36,14 @@ public class CommentManager {
 
     /**
      * Write the current class comments to markdown
+     *
      * @param file
+     * @param outputFile
      * @param combined
      */
-    public static void writeMarkDown(Path file, Map<String, List<String>> combined) {
+    public static void writeMarkDown(Path file, Path outputFile, Map<String, List<String>> combined) {
         List<String> markdownLines = new ArrayList<>();
-        markdownLines.add("# " + file.toString().replace(".java", ""));
+        markdownLines.add("# " + file.getFileName().toString().replace(".java", ""));
         combined.keySet().forEach(s -> {
             if (s.contains("class")) {
                 addCommentsToMarkDown(combined, s, markdownLines);
@@ -53,7 +55,7 @@ public class CommentManager {
                 markdownLines.add("---");
             }
         });
-        FileUtils.writeFile(Paths.get("markdown.md"), markdownLines);
+        FileUtils.writeFile(outputFile, markdownLines);
     }
 
     private static void addCommentsToMarkDown(Map<String, List<String>> combined, String s, List<String> markdownLines) {
@@ -61,4 +63,6 @@ public class CommentManager {
                 markdownLines.add("\n\t" + e));
     }
 
+    public static void writeRestoredFile(Path fileFromResources, Path outputFile) {
+    }
 }

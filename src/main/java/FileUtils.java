@@ -3,6 +3,7 @@ import lombok.extern.log4j.Log4j2;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -49,6 +50,10 @@ public class FileUtils {
         return ret;
     }
 
+    public static String readFileToString(Path pathToFile) {
+        return String.join("", FileUtils.readFile(pathToFile));
+    }
+
     public static void writeFile(final Path filename, List<String> list) {
         try (FileWriter writer = new FileWriter(filename.toString())) {
             for (String str : list) {
@@ -90,6 +95,19 @@ public class FileUtils {
     public static boolean isWindows() {
         String os = System.getProperty("os.name").toLowerCase();
         return os.contains("win");
+    }
+
+    public static Path getFileFromResources(Path fileName) throws IOException {
+        URL resource = FileUtils.class.getClassLoader().getResource(fileName.toString());
+        if (resource == null) {
+            throw new IllegalArgumentException("File not found! " + fileName);
+        } else {
+            return Paths.get(resource.getFile());
+        }
+    }
+
+    public static Path getFileFromResources(String fileName) throws IOException {
+            return getFileFromResources(Paths.get(fileName));
     }
 
 }

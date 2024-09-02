@@ -19,11 +19,11 @@ public class CommentManagerTest {
     static Path src;
     static Path docs;
 
-    static Path linuxSrc = Paths.get("/home/rick/Documents/powin/localmanager-test/src/");
-    static Path linuxDocs = Paths.get("/home/rick/Documents/powin/localmanager-test/docs/");
+    static Path linuxSrc = Path.of("/home/rick/Documents/powin/localmanager-test/src/");
+    static Path linuxDocs = Path.of("/home/rick/Documents/powin/localmanager-test/docs/");
 
-    static Path winsrc = Paths.get("F:\\Powin\\localmanager-test\\src\\");
-    static Path windocs = Paths.get("F:\\Powin\\localmanager-test\\docs\\");
+    static Path winsrc = Path.of("F:\\Powin\\localmanager-test\\src\\");
+    static Path windocs = Path.of("F:\\Powin\\localmanager-test\\docs\\");
     private static Path currentFile;
 
     @BeforeAll
@@ -94,26 +94,45 @@ public class CommentManagerTest {
     }
 
     @Test
-    public void writeTrimmedFileToDisk() {
-        Path path = Paths.get("trimmedFile.java");
-        //noinspection ResultOfMethodCallIgnored
-        path.toFile().delete();
-        FileUtils.writeFile(Paths.get("trimmedFile.java"), CommentManager.removeJavaDocComments(lines, comments));
-        assertTrue(Paths.get("trimmedFile.java").toFile().exists());
+    public void writeTrimmedFileToDisk() throws IOException {
+        Path outputFile = Path.of("trimmedFile.java");
+        Path referenceFile = FileUtils.getFileFromResources("trimmedFile_reference.java");
+//        outputFile.toFile().delete();
+        FileUtils.writeFile(outputFile, CommentManager.removeJavaDocComments(lines, comments));
+        assertFilesMatch(outputFile, referenceFile);
     }
 
     @Test
-    public void createMarkDown() {
+    public void createMarkDown() throws IOException {
+        Path outputFile = Path.of("markdown.md");
+        Path referenceFile = FileUtils.getFileFromResources("markdown_reference.md");
         combineCommentsWithDeclaration();
-        CommentManager.writeMarkDown(Paths.get("CommandByteReader.java"), combined);
+        CommentManager.writeMarkDown(FileUtils.getFileFromResources("CommandByteReader.java"), outputFile, combined);
+        assertFilesMatch(outputFile, referenceFile);
+    }
 
+//    @Test
+//    public void restoreJavaDocsToJava() throws IOException {
+//        Path outputFile = Path.of("restoredFile.java");
+//        Path referenceFile = FileUtils.getFileFromResources("CommandByteReader.java");
+//        combineCommentsWithDeclaration();
+//        CommentManager.writeRestoredFile(FileUtils.getFileFromResources("markdown_reference.md"), outputFile);
+//
+//        assertFilesMatch(outputFile, referenceFile);
+//    }
+
+    private static void assertFilesMatch(Path outputFile, Path referenceFile) {
+        assertTrue(outputFile.toFile().exists());
+        List<String> newFile = FileUtils.readFile(outputFile);
+        List<String> refFile = FileUtils.readFile(referenceFile);
+        assertEquals(newFile, refFile, "Files do not match.");
     }
 
     private static List<String> readFirstFile() throws IOException {
         // List<Path> allJavaFiles_src = FileUtils.getAllJavaFiles(src);
         // @SuppressWarnings("OptionalGetWithoutIsPresent")
         // Path path = allJavaFiles_src.stream().findFirst().get();
-        currentFile = Paths.get("CommandByteReader.java");
+        currentFile = FileUtils.getFileFromResources(Path.of("CommandByteReader.java"));
         return FileUtils.readFile(currentFile);
     }
 
