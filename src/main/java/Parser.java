@@ -6,6 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Parse java files for JavaDoc comments and class|method declarations.
+ */
 @Log4j2
 public class Parser {
     public static final String START_OF_JAVA_DOC = "^.*/\\*\\*.*$";
@@ -19,8 +22,8 @@ public class Parser {
     public static Map<Integer, List<String>> parseJavaDocs(List<String> lines) {
         List<String> comment = new ArrayList<>();
         Map<Integer, List<String>> store = new LinkedHashMap<>();
-        Integer i = 1;
-        Integer startOfComment = 0;
+        int i = 1;
+        int startOfComment = 0;
         for (String l : lines) {
             if (l.matches(START_OF_JAVA_DOC)) {
                 comment = new ArrayList<>();
