@@ -44,18 +44,21 @@ public class CommentManager {
     public static void writeMarkDown(Path file, Path outputFile, Map<String, List<String>> combined) {
         List<String> markdownLines = new ArrayList<>();
         markdownLines.add("# " + file.getFileName().toString().replace(".java", ""));
-        combined.keySet().forEach(s -> {
-            if (s.contains("class")) {
-                addCommentsToMarkDown(combined, s, markdownLines);
+        combined.keySet().forEach(methodSignature -> {
+            if (methodSignature.contains("class")) {
+                addCommentsToMarkDown(combined, methodSignature, markdownLines);
                 markdownLines.add("## _Methods_");
             } else {
-                String methodName = StringUtils.getMethodName(s.trim());
-                markdownLines.add(s.trim().replace(methodName, "**" + methodName + "**"));
-                addCommentsToMarkDown(combined, s, markdownLines);
+                markdownLines.add(boldMethodName(methodSignature, StringUtils.getMethodName(methodSignature.trim())));
+                addCommentsToMarkDown(combined, methodSignature, markdownLines);
                 markdownLines.add("---");
             }
         });
         FileUtils.writeFile(outputFile, markdownLines);
+    }
+
+    private static String boldMethodName(String s, String methodName) {
+        return s.trim().replace(methodName, "**" + methodName + "**");
     }
 
     private static void addCommentsToMarkDown(Map<String, List<String>> combined, String s, List<String> markdownLines) {
@@ -63,14 +66,20 @@ public class CommentManager {
                 markdownLines.add("\n\t" + e));
     }
 
+    /**
+     * Restore the javadoc comments to the trimmed file.
+     *
+     * @param trimmedJavaFile
+     * @param markdown
+     * @param javaOutputFile
+     */
     public static void writeRestoredFile(Path trimmedJavaFile, Path markdown, Path javaOutputFile) {
-        // Read trimmed java file into a list
         List<String> javaLines = FileUtils.readFile(trimmedJavaFile);
         List<String> markdownLines = FileUtils.readFile(markdown);
         Map<Integer, String> declarations = Parser.parseClassAndMethods(javaLines);
         List<Integer> reversed = declarations.keySet().stream().toList().reversed();
-        reversed.forEach(e -> {
-            String methodDeclaration = declarations.get(e);
+        reversed.forEach(lineNumberKey -> {
+            String methodDeclaration = declarations.get(lineNumberKey);
             String method = StringUtils.getMethodName(methodDeclaration);
             int methodDeclarationIndex = 0;
             if (!"No method name found.".equals(method)) {
@@ -79,7 +88,7 @@ public class CommentManager {
             }
             List<String> comment = getComment(methodDeclarationIndex, markdownLines);
             if (!comment.isEmpty()) {
-                int lineIndex = e-1;
+                int lineIndex = lineNumberKey-1;
                 while(!javaLines.get(lineIndex-1).trim().isEmpty()) { lineIndex--; }
                 javaLines.addAll(lineIndex, comment);
             }
@@ -88,6 +97,12 @@ public class CommentManager {
         FileUtils.writeFile(javaOutputFile, javaLines);
     }
 
+    /**
+     * Returns the JavaDoc comments for the method at the given index.
+     * @param methodDeclarationIndex - index of the method declaration
+     * @param markdownLines - list of markdown lines
+     * @return - List<String> - JavaDoc comments
+     */
     private static List<String> getComment(int methodDeclarationIndex, List<String> markdownLines) {
         List<String> comment = new ArrayList<>();
         List<String> loopTerminators = List.of("---", "## _Methods_");

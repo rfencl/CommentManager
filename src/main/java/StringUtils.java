@@ -14,6 +14,11 @@ public class StringUtils {
         return str;
     }
 
+    /**
+     * Extract the method name from a method declaration.
+     * @param methodDeclaration
+     * @return
+     */
     public static String getMethodName(String methodDeclaration) {
         String regex = "\\b(?:public|private|protected|static|final|abstract|synchronized|native|transient|volatile|\\s)*\\s+\\w+\\s+(\\w+)\\s*\\(";
         Pattern pattern = Pattern.compile(regex);
