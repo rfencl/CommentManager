@@ -111,15 +111,13 @@ public class CommentManagerTest {
         assertFilesMatch(outputFile, referenceFile);
     }
 
-//    @Test
-//    public void restoreJavaDocsToJava() throws IOException {
-//        Path outputFile = Path.of("restoredFile.java");
-//        Path referenceFile = FileUtils.getFileFromResources("CommandByteReader.java");
-//        combineCommentsWithDeclaration();
-//        CommentManager.writeRestoredFile(FileUtils.getFileFromResources("markdown_reference.md"), outputFile);
-//
-//        assertFilesMatch(outputFile, referenceFile);
-//    }
+    @Test
+    public void restoreJavaDocsToJava() throws IOException {
+        Path outputFile = Path.of("restoredFile.java");
+        Path referenceFile = FileUtils.getFileFromResources("CommandByteReader.java");
+        CommentManager.writeRestoredFile(FileUtils.getFileFromResources("trimmedFile_reference.java"), FileUtils.getFileFromResources("markdown_reference.md"), outputFile);
+        assertFilesMatch(outputFile, referenceFile);
+    }
 
     private static void assertFilesMatch(Path outputFile, Path referenceFile) {
         assertTrue(outputFile.toFile().exists());

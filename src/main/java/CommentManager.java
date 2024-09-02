@@ -63,6 +63,39 @@ public class CommentManager {
                 markdownLines.add("\n\t" + e));
     }
 
-    public static void writeRestoredFile(Path fileFromResources, Path outputFile) {
+    public static void writeRestoredFile(Path trimmedJavaFile, Path markdown, Path javaOutputFile) {
+        // Read trimmed java file into a list
+        List<String> javaLines = FileUtils.readFile(trimmedJavaFile);
+        List<String> markdownLines = FileUtils.readFile(markdown);
+        Map<Integer, String> declarations = Parser.parseClassAndMethods(javaLines);
+        List<Integer> reversed = declarations.keySet().stream().toList().reversed();
+        reversed.forEach(e -> {
+            String methodDeclaration = declarations.get(e);
+            String method = StringUtils.getMethodName(methodDeclaration);
+            int methodDeclarationIndex = 0;
+            if (!"No method name found.".equals(method)) {
+                String find = methodDeclaration.replace(method, "**" + method + "**").trim();
+                methodDeclarationIndex = markdownLines.indexOf(find);
+            }
+            List<String> comment = getComment(methodDeclarationIndex, markdownLines);
+            if (!comment.isEmpty()) {
+                int lineIndex = e-1;
+                while(!javaLines.get(lineIndex-1).trim().isEmpty()) { lineIndex--; }
+                javaLines.addAll(lineIndex, comment);
+            }
+
+        });
+        FileUtils.writeFile(javaOutputFile, javaLines);
+    }
+
+    private static List<String> getComment(int methodDeclarationIndex, List<String> markdownLines) {
+        List<String> comment = new ArrayList<>();
+        List<String> loopTerminators = List.of("---", "## _Methods_");
+        for (int i = methodDeclarationIndex + 1; loopTerminators.stream().noneMatch(markdownLines.get(i)::contains); i++ ) {
+            if (markdownLines.get(i).contains("*")) {
+                comment.add(markdownLines.get(i).replace("\t", ""));
+            }
+        }
+        return comment;
     }
 }
