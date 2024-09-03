@@ -1,12 +1,18 @@
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
 @Log4j2
 public class CommentManager {
+
+    static Map<String, List<String>> combined = new LinkedHashMap<>();
+    static Map<Integer, String> classesAndMethods = new LinkedHashMap<>();
+    static Map<Integer, List<String>> comments = new LinkedHashMap<>();
+    static List<String> lines;
 
     @SneakyThrows
     public static void main(String [] args) {
@@ -112,5 +118,74 @@ public class CommentManager {
             }
         }
         return comment;
+    }
+
+    /**
+     * Parse the comments and declarations into maps keyed by line number.
+     * @param inputJavaFile
+     * @throws IOException
+     */
+    static void parseFile(String inputJavaFile) throws IOException {
+        lines = FileUtils.readFile(FileUtils.getFileFromResources(Path.of(inputJavaFile)));
+        classesAndMethods = Parser.parseClassAndMethods(lines);
+        comments = Parser.parseJavaDocs(lines);
+    }
+
+    static void combineCommentsAndDeclarations() {
+        log.debug("function keys {}", classesAndMethods.keySet());
+        log.debug("comment keys {}", comments.keySet());
+        combined = new LinkedHashMap<>();
+        Queue<Integer> commentQueue = new LinkedList<>(comments.keySet());
+        Queue<Integer> methodQueue = new LinkedList<>(classesAndMethods.keySet());
+        List<Integer> methodsWithoutComments = new ArrayList<>();
+        while(!methodQueue.isEmpty()) {
+            int fi = methodQueue.poll();
+            int startCount = commentQueue.size();
+            for (Integer li : commentQueue) {
+                if (li < fi) {
+                    combined.put(classesAndMethods.get(fi), comments.get(li));
+                    commentQueue.remove();
+                    break;
+                }
+            }
+            if (commentQueue.size() == startCount) {
+                methodsWithoutComments.add(fi);
+            }
+        }
+
+        addDefaultMessageToMethodsWithoutComments(methodsWithoutComments);
+    }
+
+    /**
+     * Build a new map by inserting methods without a comment back into their correct place
+     * with a default message.
+     * @param methodsWithoutComments
+     */
+    static void addDefaultMessageToMethodsWithoutComments(List<Integer> methodsWithoutComments) {
+        Map<String, List<String>> newMap = new LinkedHashMap<>();
+        Queue<String> methods = new LinkedList<>(combined.keySet());
+        while (!methodsWithoutComments.isEmpty()) {
+            int mwcIndex = methodsWithoutComments.getFirst();
+            int currentIndexOfCombined = getIndexOfMethodWithComment(methods.peek(), classesAndMethods);
+            if (isInsertMethodWithDefaultJavaDoc(currentIndexOfCombined, mwcIndex)) {
+                newMap.put(classesAndMethods.get(mwcIndex), List.of("\tNo JavaDoc Comments Found."));
+                methodsWithoutComments.removeFirst();
+            } else {
+                String methodName = methods.poll();
+                newMap.put(methodName, combined.get(methodName));
+            }
+        }
+        if (!newMap.isEmpty()) {
+            combined = newMap;
+        }
+    }
+
+    private static boolean isInsertMethodWithDefaultJavaDoc(int currentIndexOfCombined, int mwcIndex) {
+        return currentIndexOfCombined == -1 || mwcIndex < currentIndexOfCombined;
+    }
+
+    static int getIndexOfMethodWithComment(String method, Map<Integer, String> classesAndMethods) {
+        Integer keyByValue = MapUtils.findKeyByValue(classesAndMethods, method);
+        return null == keyByValue ? -1 : keyByValue ;
     }
 }
