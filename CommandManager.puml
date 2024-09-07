@@ -1,23 +1,15 @@
 @startuml
-class FileUtils {
-+ {static} List<Path> getAllSubdirectories(Path)
-+ {static} List<Path> getAllJavaFiles(Path)
-+ {static} List<Path> getAllMdFiles(Path)
-+ {static} List<Path> getFiles(Path,String)
-+ {static} List<String> readFile(Path)
-+ {static} void writeFile(Path,List<String>)
-+ {static} void createDocDirectoryStructure(Path)
-- {static} void createFolder(Path)
-+ {static} void createMarkDowns(Path)
-- {static} void createMdFiles(Path)
-+ {static} boolean isWindows()
-}
-
 class CommentManagerTest {
-~ {static} Map<Integer,String> classesAndMethods
-~ {static} Map<Integer,List<String>> comments
-~ {static} Map<String,List<String>> combined
-~ {static} List<String> lines
++ {static} String BASE_JAVA_TEST_FILE
+- {static} String SPARSE_JAVA_TEST_FILE
++ {static} String TRIMMED_FILE_REFERENCE_JAVA
++ {static} String RESTORED_FILE_JAVA
++ {static} String FILES_DO_NOT_MATCH
++ {static} String MARKDOWN_REFERENCE_MD
++ {static} String MARKDOWN_OUTPUT_MD
++ {static} String TRIMMED_OUTPUT_JAVA
+- {static} String MARKDOWN_SPARSE_OUTPUT_MD
+- {static} String SPARSE_MARKDOWN_REFERENCE_MD
 ~ {static} Path src
 ~ {static} Path docs
 ~ {static} Path linuxSrc
@@ -25,13 +17,44 @@ class CommentManagerTest {
 ~ {static} Path winsrc
 ~ {static} Path windocs
 + {static} void initBeforeClass()
+~ void verifyParseOfBaseTestInputFile()
+~ void verifyParseOfSparseTestInputFile()
 + void verifyPathsExist()
 + void verifySrcStructureMatchesDocs()
 + void verifyThatAMarkDownFileExistsForEachJavaFile()
 + void combineCommentsWithDeclaration()
 + void removeCommentsFromFile()
 + void writeTrimmedFileToDisk()
-- {static} List<String> readFirstFile()
++ void writeTrimmedSparseFileToDisk()
++ void createMarkDown()
++ void createMarkDownFromSparseInput()
++ void restoreJavaDocsToJava()
+- {static} void assertFilesMatch(Path,Path)
+}
+
+class FileUtils {
++ {static} List<Path> getAllSubdirectories(Path)
++ {static} List<Path> getAllJavaFiles(Path)
++ {static} List<Path> getAllMdFiles(Path)
++ {static} List<Path> getFiles(Path,String)
++ {static} List<String> readFile(Path)
++ {static} String readFileToString(Path)
++ {static} void writeFile(Path,List<String>)
++ {static} void createDocDirectoryStructure(Path)
+- {static} void createFolder(Path)
++ {static} void createMarkDowns(Path)
+- {static} void createMdFiles(Path)
++ {static} boolean isWindows()
++ {static} Path getFileFromResources(Path)
++ {static} Path getFileFromResources(String)
+}
+
+class MapUtils {
+~ {static} K findKeyByValue(Map<K,V>,V)
+}
+
+class ParserTest {
+~ void parseJavaDocs()
 }
 
 
@@ -42,19 +65,30 @@ class Parser {
 + {static} Map<Integer,String> parseClassAndMethods(List<String>)
 }
 
-
 class CommentManager {
+~ {static} Map<String,List<String>> combined
+~ {static} Map<Integer,String> classesAndMethods
+~ {static} Map<Integer,List<String>> comments
+~ {static} List<String> lines
 + {static} void main(String[])
 + {static} List<String> removeJavaDocComments(List<String>,Map<Integer,List<String>>)
++ {static} void writeMarkDown(Path,Path,Map<String,List<String>>)
+- {static} String boldMethodName(String,String)
+- {static} void addCommentsToMarkDown(Map<String,List<String>>,String,List<String>)
++ {static} void writeRestoredFile(Path,Path,Path)
+- {static} List<String> getComment(int,List<String>)
+~ {static} void parseFile(String)
+~ {static} void combineCommentsAndDeclarations()
+~ {static} void addDefaultMessageToMethodsWithoutComments(List<Integer>)
+- {static} boolean isInsertMethodWithDefaultJavaDoc(int,int)
+~ {static} int getIndexOfMethodWithComment(String,Map<Integer,String>)
 }
 
-class ParserTest {
-~ void parseJavaDocs()
-}
 
 class StringUtils {
 + {static} String MARKDOWN_INDENT_FOR_CODE_BLOCK
 + {static} String padWithLeadingSpaces(String)
++ {static} String getMethodName(String)
 }
 
 

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8f7802-24d4-451e-8a8b-1b5630a1cf92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CommandManager.puml.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MarkDown.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MarkDown.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommandManager.puml" beforeDir="false" afterPath="$PROJECT_DIR$/CommandManager.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,53 +49,70 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.CommentManagerTest.combineCommentsWithDeclaration.executor": "Debug",
-    "JUnit.CommentManagerTest.executor": "Run",
-    "JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor": "Debug",
-    "JUnit.CommentManagerTest.parseFileForComments.executor": "Debug",
-    "JUnit.CommentManagerTest.readFirstJavaFile.executor": "Debug",
-    "JUnit.CommentManagerTest.removeCommentsFromFile.executor": "Debug",
-    "JUnit.CommentManagerTest.verifyPathsExist.executor": "Run",
-    "JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor": "Run",
-    "JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile.executor": "Run",
-    "JUnit.CommentManagerTest.writeTrimmedFileToDisk.executor": "Run",
-    "JUnit.ParserTest.parseJavaDocs.executor": "Run",
-    "Maven.CommentManager [-U,compile,test-compile].executor": "Run",
-    "Maven.CommentManager [-U,compile,testcompile].executor": "Run",
-    "Maven.CommentManager [clean,-U,compile...].executor": "Run",
-    "Maven.CommentManager [test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last.edited.regexp": "     public static int formatInt(String in, HexField field) {",
-    "last_directory_selection": "/home/rick/Documents/GitHub/CommentManager/src/main/java",
-    "last_opened_file_path": "D:/GitHub/CommentManager",
-    "onboarding.tips.debug.path": "/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.combineCommentsWithDeclaration.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CommentManagerTest.createMarkDown.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.createMarkDownFromSparseInput.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CommentManagerTest.parseFileForComments.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CommentManagerTest.readFirstJavaFile.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CommentManagerTest.removeCommentsFromFile.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CommentManagerTest.restoreJavaDocsToJava.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.verifyParseOfSparseTestInputFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.verifyPathsExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.writeTrimmedFileToDisk.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ParserTest.parseJavaDocs.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CommentManager [-U,compile,test-compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CommentManager [-U,compile,testcompile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CommentManager [clean,-U,compile...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CommentManager [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last.edited.regexp&quot;: &quot;     public static int formatInt(String in, HexField field) {&quot;,
+    &quot;last_directory_selection&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="CommentManager" />
+      <recent name="MapUtils" />
       <recent name="StringUtils" />
       <recent name="Parser" />
       <recent name="FileUtils" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -114,7 +126,7 @@
       <command value="mvn clean -U compile test-compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentManagerTest.createMarkDown">
+  <component name="RunManager" selected="JUnit.CommentManagerTest">
     <configuration name="CommentManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -134,31 +146,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.verifyPathsExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentManagerTest.createMarkDownFromSparseInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="verifyPathsExist" />
+      <option name="METHOD_NAME" value="createMarkDownFromSparseInput" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.writeTrimmedFileToDisk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentManagerTest.restoreJavaDocsToJava" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="writeTrimmedFileToDisk" />
+      <option name="METHOD_NAME" value="restoreJavaDocsToJava" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest.parseJavaDocs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentManagerTest.verifyParseOfSparseTestInputFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="METHOD_NAME" value="parseJavaDocs" />
+      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
+      <option name="METHOD_NAME" value="verifyParseOfSparseTestInputFile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentManagerTest.createMarkDown" />
         <item itemvalue="JUnit.CommentManagerTest" />
-        <item itemvalue="JUnit.CommentManagerTest.writeTrimmedFileToDisk" />
-        <item itemvalue="JUnit.ParserTest.parseJavaDocs" />
-        <item itemvalue="JUnit.CommentManagerTest.verifyPathsExist" />
+        <item itemvalue="JUnit.CommentManagerTest.createMarkDownFromSparseInput" />
+        <item itemvalue="JUnit.CommentManagerTest.verifyParseOfSparseTestInputFile" />
+        <item itemvalue="JUnit.CommentManagerTest.restoreJavaDocsToJava" />
+        <item itemvalue="JUnit.CommentManagerTest.createMarkDown" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +197,34 @@
     </task>
     <servers />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/resources/CommandByteReader.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((LinkedHashMap)combined).entrySet().toArray()[2]" custom="java.util.LinkedHashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CommentManager$CommentManagerTest_removeCommentsFromFile.ic" NAME="CommentManagerTest.removeCommentsFromFile Coverage Results" MODIFIED="1724906744461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CommentManager$CommentManagerTest.ic" NAME="CommentManagerTest Coverage Results" MODIFIED="1725323082660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
