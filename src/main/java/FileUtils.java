@@ -102,7 +102,7 @@ public class FileUtils {
         if (resource == null) {
             throw new IllegalArgumentException("File not found! " + fileName);
         } else {
-            return Paths.get(resource.getFile());
+            return Paths.get(resource.getFile().replaceFirst("/",""));
         }
     }
 

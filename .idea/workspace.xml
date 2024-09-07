@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8f7802-24d4-451e-8a8b-1b5630a1cf92" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/developer-tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommandManager.puml" beforeDir="false" afterPath="$PROJECT_DIR$/CommandManager.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,7 +59,7 @@
     &quot;JUnit.CommentManagerTest.combineCommentsWithDeclaration.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.CommentManagerTest.createMarkDown.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CommentManagerTest.createMarkDownFromSparseInput.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CommentManagerTest.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.CommentManagerTest.parseFileForComments.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.CommentManagerTest.readFirstJavaFile.executor&quot;: &quot;Debug&quot;,
@@ -66,6 +70,7 @@
     &quot;JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.CommentManagerTest.writeTrimmedFileToDisk.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CommentManagerTest.writeTrimmedSparseFileToDisk.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.ParserTest.parseJavaDocs.executor&quot;: &quot;Run&quot;,
     &quot;Maven.CommentManager [-U,compile,test-compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.CommentManager [-U,compile,testcompile].executor&quot;: &quot;Run&quot;,
@@ -86,7 +91,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md&quot;
   }
 }</component>
@@ -146,16 +151,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentManagerTest.createMarkDownFromSparseInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CommentManager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
-      <option name="METHOD_NAME" value="createMarkDownFromSparseInput" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CommentManagerTest.restoreJavaDocsToJava" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CommentManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -176,10 +171,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CommentManagerTest.writeTrimmedSparseFileToDisk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommentManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CommentManagerTest" />
+      <option name="METHOD_NAME" value="writeTrimmedSparseFileToDisk" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CommentManagerTest" />
-        <item itemvalue="JUnit.CommentManagerTest.createMarkDownFromSparseInput" />
+        <item itemvalue="JUnit.CommentManagerTest.writeTrimmedSparseFileToDisk" />
         <item itemvalue="JUnit.CommentManagerTest.verifyParseOfSparseTestInputFile" />
         <item itemvalue="JUnit.CommentManagerTest.restoreJavaDocsToJava" />
         <item itemvalue="JUnit.CommentManagerTest.createMarkDown" />
@@ -196,6 +201,17 @@
       <updated>1724640516966</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -215,13 +231,18 @@
           <line>130</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/FileUtils.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="((LinkedHashMap)combined).entrySet().toArray()[2]" custom="java.util.LinkedHashMap" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CommentManager$CommentManagerTest_removeCommentsFromFile.ic" NAME="CommentManagerTest.removeCommentsFromFile Coverage Results" MODIFIED="1724906744461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
