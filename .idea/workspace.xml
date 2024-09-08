@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f8f7802-24d4-451e-8a8b-1b5630a1cf92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/developer-tools.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/markdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/markdown.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoredFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/restoredFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sparsemarkdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/sparsemarkdown.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommentManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MapUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MapUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CommentManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trimmedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/trimmedFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,48 +63,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.combineCommentsWithDeclaration.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CommentManagerTest.createMarkDown.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.createMarkDownFromSparseInput.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CommentManagerTest.parseFileForComments.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CommentManagerTest.readFirstJavaFile.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CommentManagerTest.removeCommentsFromFile.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CommentManagerTest.restoreJavaDocsToJava.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.verifyParseOfSparseTestInputFile.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.verifyPathsExist.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.writeTrimmedFileToDisk.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentManagerTest.writeTrimmedSparseFileToDisk.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.ParserTest.parseJavaDocs.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CommentManager [-U,compile,test-compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CommentManager [-U,compile,testcompile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CommentManager [clean,-U,compile...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CommentManager [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last.edited.regexp&quot;: &quot;     public static int formatInt(String in, HexField field) {&quot;,
-    &quot;last_directory_selection&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/main/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.CommentManagerTest.combineCommentsWithDeclaration.executor": "Debug",
+    "JUnit.CommentManagerTest.createMarkDown.executor": "Run",
+    "JUnit.CommentManagerTest.createMarkDownFromSparseInput.executor": "Run",
+    "JUnit.CommentManagerTest.executor": "Run",
+    "JUnit.CommentManagerTest.parseFileForClassesAndMethods.executor": "Debug",
+    "JUnit.CommentManagerTest.parseFileForComments.executor": "Debug",
+    "JUnit.CommentManagerTest.readFirstJavaFile.executor": "Debug",
+    "JUnit.CommentManagerTest.removeCommentsFromFile.executor": "Debug",
+    "JUnit.CommentManagerTest.restoreJavaDocsToJava.executor": "Run",
+    "JUnit.CommentManagerTest.verifyParseOfSparseTestInputFile.executor": "Run",
+    "JUnit.CommentManagerTest.verifyPathsExist.executor": "Run",
+    "JUnit.CommentManagerTest.verifySrcStructureMatchesDocs.executor": "Run",
+    "JUnit.CommentManagerTest.verifyThatAMarkDownFileExistsForEachJavaFile.executor": "Run",
+    "JUnit.CommentManagerTest.writeTrimmedFileToDisk.executor": "Run",
+    "JUnit.CommentManagerTest.writeTrimmedSparseFileToDisk.executor": "Debug",
+    "JUnit.ParserTest.parseJavaDocs.executor": "Run",
+    "Maven.CommentManager [-U,compile,test-compile].executor": "Run",
+    "Maven.CommentManager [-U,compile,testcompile].executor": "Run",
+    "Maven.CommentManager [clean,-U,compile...].executor": "Run",
+    "Maven.CommentManager [test].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last.edited.regexp": "     public static int formatInt(String in, HexField field) {",
+    "last_directory_selection": "/home/rick/Documents/GitHub/CommentManager/src/main/java",
+    "last_opened_file_path": "/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md",
+    "onboarding.tips.debug.path": "/home/rick/Documents/GitHub/CommentManager/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "two.files.diff.last.used.file": "/home/rick/Documents/GitHub/CommentManager/src/test/resources/sparsemarkdown_reference.md"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -218,7 +228,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>139</line>
+          <line>144</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -228,18 +238,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>130</line>
+          <line>135</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CommentManagerTest.java</url>
-          <line>107</line>
+          <line>112</line>
           <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/FileUtils.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
